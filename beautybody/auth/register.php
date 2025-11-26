@@ -29,53 +29,145 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | beautybody</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        .card{
-            margin-top: 200px;
-            padding:20px;
-            box-shadow: 0px 14px 14px rgba(0,0,0,0.1);
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .card .title{
-            padding-bottom:10px;
-            text-align:center;
+        
+        .auth-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .auth-card {
+            background: var(--secondary-bg);
+            padding: 3rem;
+            border: 1px solid var(--primary-color);
+            max-width: 450px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .auth-card h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--background-color);
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        
+        .auth-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .auth-form button {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .auth-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .auth-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 2px;
+        }
+        
+        .auth-link a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .alert-error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
-                    <h3 class="title">Register</h3>
-                    <!-- error check: username,password -->
-                    <?php if($error):?>
-                        <div class="alert alert-danger"><?php echo $error?></div>
-                    <?php endif;?>
-                    <form method="POST" action="">
-                        <div class="mb-3">
-                            <label class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">E-mail</label>
-                            <input type="text" name="email" class="form-control" required>
-                        </div>
-                        <div class="pw mb-3>
-                            <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" required>
-                        </div> <br>
-                            <button type="submit" class="btn btn-success w-100">Register</button>
-                    </form>
-                    <p class="text-center mt-3">Sudah punya akun? <a href="login.php">Login</a></p>
+<body class="auth-container">
+    <header id="main-header">
+        <div class="container">
+            <h1 class="logo">beautybody</h1>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="container">
+            <div class="auth-card">
+                <h3>Register</h3>
+                
+                <?php if($error): ?>
+                    <div class="alert-error"><?php echo $error; ?></div>
+                <?php endif; ?>
+                
+                <form method="POST" action="" class="auth-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password (min. 6 karakter)</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Daftar</button>
+                </form>
+                
+                <div class="auth-link">
+                    <p>Sudah punya akun? <a href="login.php">Login</a></p>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2025 BEAUTYBODY, Inc.</p>
+        </div>
+    </footer>
 </body>
 </html>

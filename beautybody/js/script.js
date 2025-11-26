@@ -27,5 +27,25 @@ function toggleAuthForm(showLogin) {
     }
 }
 
+// Fungsi autohide header
+let lastScrollTop = 0;
+const header = document.getElementById('main-header');
+const scrollThreshold = 50; // Jarak scroll minimal sebelum header disembunyikan
+
+window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+        // Scroll ke bawah dan melebihi threshold - sembunyikan header
+        header.classList.add('header-hidden');
+    } else {
+        // Scroll ke atas - tampilkan header
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollTop = scrollTop;
+});
+
+
 // Panggil fungsi submit form (dari jawaban sebelumnya)
 // ... tambahkan kode submit register/login form dari langkah sebelumnya di sini ...
