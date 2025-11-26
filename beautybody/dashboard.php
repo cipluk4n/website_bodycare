@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,12 +19,15 @@
             <nav>
                 <a href="#services">Layanan</a>
                 <a href="#booking">Jadwal & Booking</a>
-                <button id="login-nav-btn" class="nav-btn">Login / Register</button>
-                <div id="user-info" style="display: none;">
+                <?php if(isset($_SESSION['email'])){ ?>
+                    <div id="user-info" style="display: none;">
                     Selamat datang, <span id="username-display"></span>!
                     <button id="logout-btn" class="nav-btn">Logout</button>
                     <a href="#history">Riwayat</a>
-                </div>
+                    </div>
+               <?php } else { ?>
+                     <button id="login-nav-btn" class="nav-btn" ><a href="./auth/register.php" >Login / Register</a></button>
+                <?php } ?>
             </nav>
         </div>
     </header>
@@ -98,7 +106,7 @@
             
             <div id="register-container" style="display: none;">
                 <h4>Buat Akun Baru</h4>
-                <form id="register-form">
+                <form id="register-form" method="post" action="./auth/register.php">
                     <label for="reg-username">Nama Pengguna:</label>
                     <input type="text" id="reg-username" name="username" required>
                     
