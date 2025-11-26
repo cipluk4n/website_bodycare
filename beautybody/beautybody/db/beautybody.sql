@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2025 at 12:54 PM
+-- Generation Time: Nov 26, 2025 at 06:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,6 +51,19 @@ CREATE TABLE `schedules` (
   `is_closed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `schedules`
+--
+
+INSERT INTO `schedules` (`id`, `day`, `start_shift`, `end_shift`, `is_closed`) VALUES
+(1, 'monday', '09:00:00', '18:00:00', 0),
+(2, 'tuesday', '09:00:00', '18:00:00', 0),
+(3, 'wednesday', '09:00:00', '18:00:00', 0),
+(4, 'thursday', '09:00:00', '18:00:00', 0),
+(5, 'friday', '09:00:00', '18:00:00', 0),
+(6, 'saturday', '00:00:00', '00:00:00', 1),
+(7, 'sunday', '00:00:00', '00:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -59,11 +72,21 @@ CREATE TABLE `schedules` (
 
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
   `duration_minutes` int(11) NOT NULL,
   `price` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `category`, `duration_minutes`, `price`) VALUES
+(1, 'Body Massage & Spa', 90, 250000),
+(2, 'Facial & Skincare Treatment', 60, 300000),
+(3, 'Hair & Scalp Care', 60, 450000),
+(4, 'Nail Art & Therapy', 45, 150000),
+(5, 'Special Sauna Relaxation', 60, 230000);
 
 -- --------------------------------------------------------
 
@@ -79,6 +102,15 @@ CREATE TABLE `users` (
   `profil_pic` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `profil_pic`, `created_at`) VALUES
+(4, 'xxx', 'xxx@xxx.xxx', '$2y$10$hK6haBFymePU86f.sxT6qO60GotoVZIekEdCqhvcdykLTJSSpua1O', '', '2025-11-26 03:47:33'),
+(5, 'test', '', '$2y$10$AqDwFJuSB5SB6C3I0GECaeTYihhSPhz50HU9/I/m7Je.laOX73TV6', '', '2025-11-26 03:50:09'),
+(6, 'coba', 'cihuy@mail', '$2y$10$S1ekz6BteYN/If77spR4euc45.f3WXY9wQtxSjCGjuMwAugn.Lu0S', '', '2025-11-26 03:54:04');
 
 --
 -- Indexes for dumped tables
@@ -124,19 +156,19 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
