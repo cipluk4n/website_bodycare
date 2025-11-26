@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2025 at 12:04 AM
+-- Generation Time: Nov 26, 2025 at 06:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -99,8 +99,6 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `address` text NOT NULL,
-  `phone_number` text NOT NULL,
   `profil_pic` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -109,10 +107,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `address`, `phone_number`, `profil_pic`, `created_at`) VALUES
-(4, 'xxx', 'xxx@xxx.xxx', '$2y$10$hK6haBFymePU86f.sxT6qO60GotoVZIekEdCqhvcdykLTJSSpua1O', '', '', '', '2025-11-26 03:47:33'),
-(5, 'test', '', '$2y$10$AqDwFJuSB5SB6C3I0GECaeTYihhSPhz50HU9/I/m7Je.laOX73TV6', '', '', '', '2025-11-26 03:50:09'),
-(6, 'coba', 'cihuy@mail', '$2y$10$S1ekz6BteYN/If77spR4euc45.f3WXY9wQtxSjCGjuMwAugn.Lu0S', '', '', '', '2025-11-26 03:54:04');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `profil_pic`, `created_at`) VALUES
+(4, 'xxx', 'xxx@xxx.xxx', '$2y$10$hK6haBFymePU86f.sxT6qO60GotoVZIekEdCqhvcdykLTJSSpua1O', '', '2025-11-26 03:47:33'),
+(5, 'test', '', '$2y$10$AqDwFJuSB5SB6C3I0GECaeTYihhSPhz50HU9/I/m7Je.laOX73TV6', '', '2025-11-26 03:50:09'),
+(6, 'coba', 'cihuy@mail', '$2y$10$S1ekz6BteYN/If77spR4euc45.f3WXY9wQtxSjCGjuMwAugn.Lu0S', '', '2025-11-26 03:54:04');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +150,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schedules`
