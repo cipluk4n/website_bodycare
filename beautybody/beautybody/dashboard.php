@@ -22,7 +22,7 @@ session_start();
                 <a href="#schedule">Schedule</a>
                 <a href="./booking.php">Booking</a>
                 <?php if (isset($_SESSION['email'])) { ?>
-                    <a href="#history">History</a>
+                    <a href="./history.php">History</a>
                     <a href="./auth/logout.php">Logout</a>
                 <?php } else { ?>
                     <a href="./auth/register.php" class="nav-btn">Login / Register</a>
