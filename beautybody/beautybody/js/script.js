@@ -29,3 +29,4 @@ function toggleAuthForm(showLogin) {
 
 // Panggil fungsi submit form (dari jawaban sebelumnya)
 // ... tambahkan kode submit register/login form dari langkah sebelumnya di sini ...
+
