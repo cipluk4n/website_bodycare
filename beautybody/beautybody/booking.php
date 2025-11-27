@@ -315,6 +315,7 @@ function getAvailableTimeSlots($connection, $date, $treatment_id)
                 <a href="./booking.php" class="active">Booking</a>
                 <?php if (isset($_SESSION['email'])) { ?>
                     <a href="dashboard.php#history">History</a>
+                    <a href="profil_user.php">Profil</a>
                     <a href="./auth/logout.php">Logout</a>
                 <?php } else { ?>
                     <a href="./auth/register.php" class="nav-btn">Login / Register</a>
