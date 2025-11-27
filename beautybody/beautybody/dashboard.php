@@ -41,7 +41,7 @@ session_start();
             <div class="container">
                 <h2>Your Self-Care, Now Easier</h2>
                 <p>Order Body massage & Relaxation Spa, Hair & Scalp Care, Nail Art & Therapy services with experts in just a few clicks..</p>
-                <a href="#booking" class="btn btn-primary">Book Now!</a>
+                <a href="booking.php" class="btn btn-primary">Book Now!</a>
 
             </div>
         </section>
@@ -206,33 +206,6 @@ session_start();
             </div>
         </section>
 
-        <section id="services-categories" class="section-padded">
-            <div class="container">
-                <h3>Our Service Categories</h3>
-                <div class="service-categories">
-                    <table class="service-table">
-                        <thead>
-                            <tr>
-                                <th>Facial & Skin Treatment</th>
-                                <th>Body Massage & Sauna</th>
-                                <th>Spa & Skin Wrap</th>
-                                <th>Hair & Scalp Care</th>
-                                <th>Nail Polish & Art</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Perawatan wajah dan kulit profesional</td>
-                                <td>Pijat tubuh dan relaksasi sauna</td>
-                                <td>Perawatan spa dan body wrap</td>
-                                <td>Perawatan rambut dan kulit kepala</td>
-                                <td>Seni kuku dan terapi</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
 
         <section id="history" class="section-padded bg-light" style="display: none;">
             <div class="container">
@@ -244,46 +217,6 @@ session_start();
         </section>
 
     </main>
-
-    <div id="auth-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeAuthModal()">&times;</span>
-
-            <div id="login-container">
-                <h4>Masuk ke Akun Anda</h4>
-                <form id="login-form">
-                    <label for="login-email">Email:</label>
-                    <input type="email" id="login-email" name="email" required>
-
-                    <label for="login-password">Kata Sandi:</label>
-                    <input type="password" id="login-password" name="password" required>
-
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <p id="login-message" class="form-message"></p>
-                </form>
-                <p>Belum punya akun? <span class="action-link" onclick="toggleAuthForm(false)">Daftar di sini</span></p>
-            </div>
-
-            <div id="register-container" style="display: none;">
-                <h4>Buat Akun Baru</h4>
-                <form id="register-form" method="post" action="./auth/register.php">
-                    <label for="reg-username">Nama Pengguna:</label>
-                    <input type="text" id="reg-username" name="username" required>
-
-                    <label for="reg-email">Email:</label>
-                    <input type="email" id="reg-email" name="email" required>
-
-                    <label for="reg-password">Kata Sandi (min. 6 kar.):</label>
-                    <input type="password" id="reg-password" name="password" required>
-
-                    <button type="submit" class="btn btn-secondary">Daftar</button>
-                    <p id="register-message" class="form-message"></p>
-                </form>
-                <p>Sudah punya akun? <span class="action-link" onclick="toggleAuthForm(true)">Login di sini</span></p>
-            </div>
-
-        </div>
-    </div>
 
     <footer>
         <div class="container">
